@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "loaded-lecture-template"
+name = "minimal-lecture-template"
 version = "0.1.0"
 description = "Minimal template for interactive lectures with notebooks, poetry, and VS Code extensions for Python."
 authors = ["Mauro J. Sanchirico III <sanchirico.mauro@gmail.com>"]
