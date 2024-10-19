@@ -7,7 +7,7 @@
 echo "Installing basic packages..."
 
 apk update \
-    && apk add --no-cache curl vim git python3 py3-pip \
+    && apk add --no-cache curl vim gcc linux-headers musl-dev git python3 python3-dev py3-pip \
     && rm -rf /var/cache/apk/*
 
 if [ $? -eq 0 ]; then
