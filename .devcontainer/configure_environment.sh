@@ -41,54 +41,6 @@ echo "Linking Python to Python3..."
 
 ln -sf /usr/bin/python3 /usr/bin/python
 
-# ==========================
-# Extra package installation
-# ==========================
-
-echo "Installing http-server..."
-
-npm i -g http-server
-
-if [ $? -eq 0 ]; then
-    echo "http-server installed!"
-else
-    echo "Failed to install http-server."
-    exit 1
-fi
-
-echo "Installing texlive..."
-
-apt-get -y update
-apt-get -y install texlive
-
-if [ $? -eq 0 ]; then
-    echo "Texlive installed!"
-else
-    echo "Failed to install texlive."
-    exit 1
-fi
-
-apt-get -y install dvipng texlive-latex-extra texlive-fonts-recommended cm-super
-
-if [ $? -eq 0 ]; then
-    echo "Texlive extras and fonts installed!"
-else
-    echo "Failed to install texlive extras and fonts."
-    exit 1
-fi
-
-echo "Installing Git LFS..."
-
-apt-get install git-lfs &&
-git lfs install
-
-if [ $? -eq 0 ]; then
-    echo "Git LFS installed!"
-else
-    echo "Failed to install Git LFS."
-    exit 1
-fi
-
 # =====================
 # Account configuration
 # =====================
