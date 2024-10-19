@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM alpine:latest
 
 ARG USERNAME=developer
 ARG GROUPNAME=$USERNAME
@@ -7,11 +7,11 @@ ARG USER_GID=$USER_UID
 
 # Create the user; adapted from:
 # https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user
-RUN groupadd -f $USERNAME \
-    && useradd -m -s /bin/bash -g $GROUPNAME $USERNAME \
-    && apt-get update \
-    && apt-get install -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+# and converted to work with alpine
+RUN apk update && apk add sudo bash
+RUN addgroup -g 1000 $GROUPNAME
+RUN adduser -h /home/$USERNAME -G $GROUPNAME -s /bin/bash -D $USERNAME
+RUN echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 # ********************************************************

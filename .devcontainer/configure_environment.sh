@@ -1,4 +1,4 @@
-export DEBIAN_FRONTEND=noninteractive
+# export DEBIAN_FRONTEND=noninteractive
 
 # ==========================
 # Basic package installation
@@ -6,9 +6,9 @@ export DEBIAN_FRONTEND=noninteractive
 
 echo "Installing basic packages..."
 
-apt-get -y update \
-&& apt-get install -yq curl vim git python3 python3-pip npm \
-&& apt-get clean
+apk update \
+    && apk add --no-cache curl vim git python3 py3-pip \
+    && rm -rf /var/cache/apk/*
 
 if [ $? -eq 0 ]; then
     echo "Basic packages installed!"
