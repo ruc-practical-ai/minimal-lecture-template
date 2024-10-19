@@ -1,5 +1,6 @@
-# minimal-lecture-template
+# Minimal Lecture Template
 Template for lecture notes with minimal memory usage and dependencies.
+
 ## Installation and Usage
 
 ### Installation and Use via Github Codespaces (Recommended)
